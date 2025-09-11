@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply bg-black text-white;
+  font-family: "Rubik Variable", sans-serif;
+}
+
+.react-photo-album--photo img {
+  @apply rounded-lg object-cover;
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 12px;
+    background-color: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: #000;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+  }
+}
