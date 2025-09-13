@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Divider from "./Divider";
 import DevhostLogo from "./Logos/DevhostLogo";
+import AerophiliaLogo from "./Logos/AerophiliaLogo";
 import { motion } from "framer-motion";
 import SSTHLogo from "./Logos/SSTHLogo";
 import SRCLogo from "./Logos/SRCLogo";
@@ -131,7 +132,7 @@ export default function Events({ refTag }) {
           gradientColors={["#833ab4", "#fd1d1d", "#fcb045"]}
           title={"SRC"}
         />
-        <SRCLogo />
+        <AerophiliaLogo/>
         <div className="flex flex-col-reverse items-center justify-end md:flex-row">
           <motion.div className="flex flex-col items-center w-full text-center md:items-start md:text-start bg-g">
             <motion.h1
@@ -160,7 +161,7 @@ export default function Events({ refTag }) {
             </div>
           </motion.div>
           <div className="flex items-center justify-between w-4/5 max-w-md pb-4">
-            <DevhostBlob />
+            <AerophiliaBlob/>
           </div>
         </div>
       </motion.div>
