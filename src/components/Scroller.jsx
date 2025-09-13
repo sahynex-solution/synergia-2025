@@ -57,12 +57,12 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 }
 
 export default function Scroller() {
-  const synergiaStartDate = new Date("2025-11-07T08:30:00");
+  const synergiaStartDate = new Date("2025-11-06T08:30:00");
 
   const parallaxText = () => {
     const currentDate = new Date();
     if (currentDate < synergiaStartDate) return "Coming Soon";
-    else if (currentDate >= synergiaStartDate && currentDate < new Date("2025-11-09T18:00:00"))
+    else if (currentDate >= synergiaStartDate && currentDate < new Date("2025-11-08T18:00:00"))
       return "See You In Synergia";
     else return "See You Next Year";
   };
