@@ -1,6 +1,4 @@
-import { motion, MotionConfig } from "framer-motion";
-import { Fragment } from "react";
-import EntryStrings from "./Animations/EntryStrings";
+import { motion } from "framer-motion";
 
 export default function EntryCard() {
   return (
@@ -59,7 +57,7 @@ export default function EntryCard() {
             className="md:text-5xl max-w-3xl w-4/5 text-3xl font-normal"
             style={{ lineHeight: 1.2 }}
           >
-            Tech insights galore during Synergia's Tech Talk
+            Tech insights galore during Synergia&apos;s Tech Talk
           </motion.h1>
           <motion.p className="md:text-2xl max-w-xl w-4/5 text-lg py-6 font-light text-zinc-300">
             Experience the thrill of innovation, the spirit of entrepreneurship,

@@ -1,14 +1,10 @@
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export default function EntryStrings() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
+    target: containerRef,
     offset: ["start start", "end start"],
   });
 

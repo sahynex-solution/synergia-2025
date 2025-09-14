@@ -30,7 +30,7 @@ export default function Navbar({ opacity, refs }) {
         >
           EVENTS
         </h1>
-        <img src={Logo} className="md:w-56 w-40" />
+        <img src={Logo} className="md:w-56 w-40" alt="Synergia Logo"/>
         <h1
           className="cursor-pointer lg:block hidden"
           onClick={() => scrollToRef(2)}

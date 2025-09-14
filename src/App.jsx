@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import { Fragment, useRef } from "react";
 import Navbar from "./components/Navbar";
-import { motion, MotionConfig, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Logo from "./components/Logo";
 import Scroller from "./components/Scroller";
 import Countdown from "./components/Countdown";
@@ -24,7 +24,7 @@ export default function App() {
   return (
     <Fragment>
       <main>
-        <Navbar opacity={opacity} refs={refs}/>
+        <Navbar opacity={opacity} refs={refs} />
         <motion.div
           className="h-screen relative flex justify-center items-center -z-50 overflow-hidden"
           ref={containerRef}
