@@ -107,7 +107,7 @@ export default function AerophiliaBlob() {
           y2="351.609"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#e5e5d7ff" />
+          <stop stopColor="#d9cabeff" />
           <stop offset="1" stopColor="#fe8a24ff" />
         </linearGradient>
         <linearGradient
