@@ -21,9 +21,9 @@ export default function Gallery({ refTag }) {
 
   useEffect(() => {
     const loaders = [
-      import.meta.glob("../assets/Synergia2023/H1/*.{jpg,jpeg,png,gif,webp}"),
-      import.meta.glob("../assets/Synergia2023/H2/*.{jpg,jpeg,png,gif,webp}"),
-      import.meta.glob("../assets/Synergia2023/H3/*.{jpg,jpeg,png,gif,webp}"),
+      import.meta.glob("../assets/Synergia2024/H1/*.{jpg,jpeg,png,gif,webp}"),
+      import.meta.glob("../assets/Synergia2024/H2/*.{jpg,jpeg,png,gif,webp}"),
+      import.meta.glob("../assets/Synergia2024/H3/*.{jpg,jpeg,png,gif,webp}"),
     ];
 
     Promise.all(
