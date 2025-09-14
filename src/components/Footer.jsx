@@ -14,7 +14,7 @@ export default function Footer({ refTag }) {
       ref={refTag}
     >
       <motion.div className="w-full flex md:items-start items-center justify-center gap-5 flex-col p-4">
-        <img src={Logo} className="max-w-sm" />
+        <img src={Logo} alt="Synergia Logo" className="max-w-sm" />
         <h2 className="max-w-md text-xl px-2">
           SAHYADRI CAMPUS, ADYAR, MANGALURU, KARNATAKA, INDIA - 575007
         </h2>
@@ -36,6 +36,7 @@ export default function Footer({ refTag }) {
           <div className="flex gap-2">
             <button
               className="bg-white text-black font-semibold p-2 text-sm w-10 h-10 rounded-lg inline-flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+              title="Instagram"
               onClick={() =>
                 window.open(
                   "https://www.instagram.com/synergia_sahyadri/",
@@ -48,6 +49,7 @@ export default function Footer({ refTag }) {
             </button>
             <button
               className="bg-white text-black font-semibold p-2 text-sm w-10 h-10 rounded-lg inline-flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+              title="Facebook"
               onClick={() =>
                 window.open(
                   "https://www.facebook.com/people/Synergia-Sahyadri/61553365303591/",
@@ -60,6 +62,7 @@ export default function Footer({ refTag }) {
             </button>
             <button
               className="bg-white text-black font-semibold p-2 text-sm w-10 h-10 rounded-lg inline-flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+              title="LinkedIn"
               onClick={() =>
                 window.open(
                   "https://www.linkedin.com/company/synergia-sahyadri/",
