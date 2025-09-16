@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import './LargeHeader.css'; 
-import { TweenLite, Circ } from "gsap";
+import { gsap, Circ } from "gsap";
 
 const LargeHeader = () => {
 
@@ -64,7 +64,7 @@ const LargeHeader = () => {
     const scrollCheck = () => {
       scrollY.current = window.scrollY;
       animateHeader.current = scrollY.current <= height;
-      canvas.style.transform = `translateY(${scrollY.current * 0.5}px)`; // Adjust this value to control the speed
+      canvas.style.transform = `translateY(${scrollY.current * 0.5}px)`;
     };
 
     const resize = () => {
@@ -103,7 +103,7 @@ const LargeHeader = () => {
     };
 
     const shiftPoint = (p) => {
-      TweenLite.to(p, 1 + 1 * Math.random(), {
+      gsap.to(p, 1 + 1 * Math.random(), {
         x: p.originX - 50 + Math.random() * 100,
         y: p.originY - 50 + Math.random() * 100,
         ease: Circ.easeInOut,

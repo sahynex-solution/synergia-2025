@@ -1,7 +1,6 @@
 import anime from "animejs";
 import { Fragment, useEffect, useRef, useState } from "react";
-import LogoSVG from "../assets/Logo.svg";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import HomeString from "./Animations/HomeString";
 
 export default function Logo({ position }) {

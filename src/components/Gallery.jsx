@@ -1,152 +1,119 @@
-import { useRef, useEffect, useState, useCallback } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 import Title from "./Title";
 
-const debounce = (func, delay) => {
-  let timeoutId;
-  return (...args) => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);
-  };
-};
-
-const HorizontalScroll = ({ children, reverse }) => {
-  const containerRef = useRef(null);
-  const controls = useAnimation();
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const [scrollStarted, setScrollStarted] = useState(false);
-
-  const startScroll = useCallback(() => {
-    if (containerWidth > viewportWidth && !scrollStarted) {
-      controls.start({
-        x: [
-          reverse ? -(containerWidth - viewportWidth) : 0,
-          reverse ? 0 : -(containerWidth - viewportWidth),
-        ],
-        transition: {
-          duration: 120,
-          ease: "linear",
-          repeat: Infinity,
-          repeatType: "reverse",
-        },
-      });
-      setScrollStarted(true);
-    }
-  }, [containerWidth, viewportWidth, reverse, scrollStarted, controls]);
-
-  const updateDimensions = useCallback(
-    debounce(() => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.scrollWidth);
-        setViewportWidth(window.innerWidth);
-        setScrollStarted(false);
-      }
-    }, 300),
-    []
-  );
-
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, [updateDimensions]);
-
-  useEffect(() => {
-    startScroll();
-  }, [containerWidth, viewportWidth, startScroll]);
-
+function HorizontalScroll({ children, reverse }) {
   return (
+<<<<<<< HEAD
     <div className="relative w-full h-full overflow-hidden">
       <motion.div
         ref={containerRef}
         className="flex flex-row gap-4 px-2"
         animate={controls}
+=======
+    <div className="w-full overflow-hidden relative">
+      <div
+        className={`flex gap-4 px-2 animate-marquee ${
+          reverse ? "animate-marquee-reverse" : ""
+        }`}
+>>>>>>> 691a91fa4411725c7ead3bd4ff32ed2099f953f6
       >
         {children}
-      </motion.div>
+        {children} {/* Duplicate for seamless loop */}
+      </div>
     </div>
   );
-};
+}
 
 export default function Gallery({ refTag }) {
-  const [images1, setImages1] = useState([]);
-  const [images2, setImages2] = useState([]);
-  const [images3, setImages3] = useState([]);
+  const [images, setImages] = useState({ row1: [], row2: [], row3: [] });
 
   useEffect(() => {
-    const images1 = import.meta.glob(
-      "../assets/Synergia2023/H1/*.{jpg,jpeg,png,gif}"
-    );
+    const loaders = [
+      import.meta.glob("../assets/Synergia2024/H1/*.{jpg,jpeg,png,gif,webp}"),
+      import.meta.glob("../assets/Synergia2024/H2/*.{jpg,jpeg,png,gif,webp}"),
+      import.meta.glob("../assets/Synergia2024/H3/*.{jpg,jpeg,png,gif,webp}"),
+    ];
 
     Promise.all(
-      Object.keys(images1).map((key) =>
-        images1[key]().then((module) => module.default)
+      loaders.map((group) =>
+        Promise.all(
+          Object.keys(group).map((key) =>
+            group[key]().then((m) => m.default)
+          )
+        )
       )
-    ).then((loadedImages) => {
-      setImages1(loadedImages);
-    });
-
-    const images2 = import.meta.glob(
-      "../assets/Synergia2023/H2/*.{jpg,jpeg,png,gif}"
-    );
-
-    Promise.all(
-      Object.keys(images2).map((key) =>
-        images2[key]().then((module) => module.default)
-      )
-    ).then((loadedImages) => {
-      setImages2(loadedImages);
-    });
-
-    const images3 = import.meta.glob(
-      "../assets/Synergia2023/H3/*.{jpg,jpeg,png,gif}"
-    );
-
-    Promise.all(
-      Object.keys(images3).map((key) =>
-        images3[key]().then((module) => module.default)
-      )
-    ).then((loadedImages) => {
-      setImages3(loadedImages);
+    ).then(([row1, row2, row3]) => {
+      setImages({ row1, row2, row3 });
     });
   }, []);
 
   return (
     <div ref={refTag} className="pt-16">
+<<<<<<< HEAD
       <Title title={"Gallery"} />
       <div className="relative flex flex-col gap-4 px-6 py-2">
         <div className="absolute top-0 left-0 z-10 w-10 h-full bg-gradient-to-r from-black via-black to-transparent" />
         <div className="absolute top-0 right-0 z-10 w-10 h-full bg-gradient-to-l from-black via-black to-transparent" />
+=======
+      <Title title="Gallery" />
+      <div className="py-2 px-6 flex flex-col gap-6 relative">
+        {/* Gradient edges */}
+        <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-black to-transparent z-10" />
+        <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black to-transparent z-10" />
+
+>>>>>>> 691a91fa4411725c7ead3bd4ff32ed2099f953f6
         <HorizontalScroll>
-          {images1.map((imageSrc, index) => (
+          {images.row1.map((src, i) => (
             <img
+<<<<<<< HEAD
               key={index}
               src={imageSrc}
               alt={`Image1-${index}`}
               className="object-cover rounded-lg w-96 md:h-56 h-36"
+=======
+              key={`row1-${i}`}
+              src={src}
+              alt={`Gallery1-${i}`}
+              className="w-96 md:h-56 h-36 rounded-lg object-cover"
+>>>>>>> 691a91fa4411725c7ead3bd4ff32ed2099f953f6
               loading="lazy"
             />
           ))}
         </HorizontalScroll>
-        <HorizontalScroll reverse={true}>
-          {images2.map((imageSrc, index) => (
+
+        <HorizontalScroll reverse>
+          {images.row2.map((src, i) => (
             <img
+<<<<<<< HEAD
               key={index}
               src={imageSrc}
               alt={`Image2-${index}`}
               className="object-cover rounded-lg w-96 md:h-56 h-36"
+=======
+              key={`row2-${i}`}
+              src={src}
+              alt={`Gallery2-${i}`}
+              className="w-96 md:h-56 h-36 rounded-lg object-cover"
+>>>>>>> 691a91fa4411725c7ead3bd4ff32ed2099f953f6
               loading="lazy"
             />
           ))}
         </HorizontalScroll>
+
         <HorizontalScroll>
-          {images3.map((imageSrc, index) => (
+          {images.row3.map((src, i) => (
             <img
+<<<<<<< HEAD
               key={index}
               src={imageSrc}
               alt={`Image3-${index}`}
               className="object-cover rounded-lg w-96 md:h-56 h-36"
+=======
+              key={`row3-${i}`}
+              src={src}
+              alt={`Gallery3-${i}`}
+              className="w-96 md:h-56 h-36 rounded-lg object-cover"
+>>>>>>> 691a91fa4411725c7ead3bd4ff32ed2099f953f6
               loading="lazy"
             />
           ))}
