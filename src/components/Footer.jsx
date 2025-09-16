@@ -58,7 +58,7 @@ export default function Footer({ refTag }) {
                 className="inline-flex items-center justify-center p-2 text-black transition-transform duration-300 ease-in-out transform bg-white rounded-lg w-9 h-9 hover:scale-110 active:scale-95"
                 onClick={() =>
                   window.open(
-                    "https://www.instagram.com/synergia_sahyadri/",
+                    "https://www.instagram.com/synergia.sahyadri/",
                     "_blank",
                     "noopener,noreferrer"
                   )
