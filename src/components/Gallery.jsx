@@ -57,7 +57,7 @@ const HorizontalScroll = ({ children, reverse }) => {
   }, [containerWidth, viewportWidth, startScroll]);
 
   return (
-    <div className="w-full h-full overflow-hidden relative">
+    <div className="relative w-full h-full overflow-hidden">
       <motion.div
         ref={containerRef}
         className="flex flex-row gap-4 px-2"
@@ -115,16 +115,16 @@ export default function Gallery({ refTag }) {
   return (
     <div ref={refTag} className="pt-16">
       <Title title={"Gallery"} />
-      <div className="py-2 px-6 flex flex-col gap-4 relative">
-        <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-black via-black to-transparent z-10" />
-        <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black via-black to-transparent z-10" />
+      <div className="relative flex flex-col gap-4 px-6 py-2">
+        <div className="absolute top-0 left-0 z-10 w-10 h-full bg-gradient-to-r from-black via-black to-transparent" />
+        <div className="absolute top-0 right-0 z-10 w-10 h-full bg-gradient-to-l from-black via-black to-transparent" />
         <HorizontalScroll>
           {images1.map((imageSrc, index) => (
             <img
               key={index}
               src={imageSrc}
               alt={`Image1-${index}`}
-              className="w-96 md:h-56 h-36 rounded-lg object-cover"
+              className="object-cover rounded-lg w-96 md:h-56 h-36"
               loading="lazy"
             />
           ))}
@@ -135,7 +135,7 @@ export default function Gallery({ refTag }) {
               key={index}
               src={imageSrc}
               alt={`Image2-${index}`}
-              className="w-96 md:h-56 h-36 rounded-lg object-cover"
+              className="object-cover rounded-lg w-96 md:h-56 h-36"
               loading="lazy"
             />
           ))}
@@ -146,7 +146,7 @@ export default function Gallery({ refTag }) {
               key={index}
               src={imageSrc}
               alt={`Image3-${index}`}
-              className="w-96 md:h-56 h-36 rounded-lg object-cover"
+              className="object-cover rounded-lg w-96 md:h-56 h-36"
               loading="lazy"
             />
           ))}
