@@ -48,7 +48,7 @@ export default function Events({ refTag }) {
     {
       title: "Aerophilia",
       gradientColors: ["#00c6ff","#0072ff","#f8310e"],
-      Logo: AerophiliaLogo, // swap when you have Aerophilia logo
+      Logo: AerophiliaLogo,
       Blob: AerophiliaBlob,
       heading: "The sky is not the limit.",
       description: "Celebrating aviation innovation and drone technology.",

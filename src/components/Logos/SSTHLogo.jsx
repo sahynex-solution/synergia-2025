@@ -22,7 +22,7 @@ export default function SSTHLogo() {
       viewBox="0 0 1294 648"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-64 h-auto self-center"
+      className="w-96 h-auto self-center"
       initial="hidden"
       whileInView="visible"
       stroke="white"
