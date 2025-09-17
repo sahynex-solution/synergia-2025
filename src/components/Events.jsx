@@ -39,9 +39,8 @@ export default function Events({ refTag }) {
       gradientColors: ["#833ab4", "#fd1d1d", "#fcb045"],
       Logo: SRCLogo,
       Blob: SRCBlob,
-      heading: ["Build.", "Innovate.", "Compete."],
-
-      description: "Where robots come to life and imagination knows no bounds!",
+      heading: "Build. Innovate. Compete.",
+      description: "Where innovation meets automation",
       link: null,
       reverse: false,
     },
