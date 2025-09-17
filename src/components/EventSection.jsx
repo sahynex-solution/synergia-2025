@@ -34,12 +34,25 @@ function EventSection({
               : "md:items-end md:text-end"
           }`}
         >
-          <motion.h1
+          {/* <motion.h1
             className="w-4/5 max-w-3xl text-3xl font-normal md:text-5xl mix-blend-difference"
             style={{ lineHeight: 1.2 }}
           >
             {heading}
           </motion.h1>
+          */}
+
+          <motion.h1
+            className="w-4/5 max-w-3xl text-3xl font-normal md:text-5xl mix-blend-difference"
+            style={{ lineHeight: 1.2 }}
+          >
+            {Array.isArray(heading) ? (
+              heading.map((line, idx) => <p key={idx}>{line}</p>)
+            ) : (
+              <p>{heading}</p>
+            )}
+          </motion.h1>
+
           <motion.p className="w-4/5 max-w-xl py-6 text-lg font-light md:text-2xl text-zinc-300">
             {description}
           </motion.p>

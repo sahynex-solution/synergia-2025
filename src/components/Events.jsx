@@ -39,15 +39,15 @@ export default function Events({ refTag }) {
       gradientColors: ["#833ab4", "#fd1d1d", "#fcb045"],
       Logo: SRCLogo,
       Blob: SRCBlob,
-      heading: "Engineer. Compete. Dominate.",
-      description:
-        "Where robots come to life and imagination knows no bounds!",
+      heading: ["Build.", "Innovate.", "Compete."],
+
+      description: "Where robots come to life and imagination knows no bounds!",
       link: null,
       reverse: false,
     },
     {
       title: "Aerophilia",
-      gradientColors: ["#00c6ff","#0072ff","#f8310e"],
+      gradientColors: ["#00c6ff", "#0072ff", "#f8310e"],
       Logo: AerophiliaLogo,
       Blob: AerophiliaBlob,
       heading: "The sky is not the limit.",
