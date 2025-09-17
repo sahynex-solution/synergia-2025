@@ -28,9 +28,9 @@ export default function Events({ refTag }) {
       gradientColors: ["#FDFC47", "", "#24fe41"],
       Logo: DevhostLogo,
       Blob: DevhostBlob,
-      heading: "Sparking innovation. Igniting Curiosity.",
+      heading: "Expertise Redefined, Experience Reimagined.",
       description:
-        "A technical extravaganza featuring a 24-Hour hackathon and an electrifying esports tournament.",
+        "A flagship tech fest with a 36-hour hackathon, expert-led workshops, dev talks, and exciting tech & non-tech battles.",
       link: "https://devhost.sosc.org.in",
       reverse: true,
     },
