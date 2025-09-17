@@ -26,24 +26,29 @@ export default function App() {
       <main>
         <Navbar opacity={opacity} refs={refs} />
         <motion.div
-          className="h-screen relative flex justify-center items-center -z-50 overflow-hidden"
+          className="relative flex items-center justify-center h-screen overflow-hidden -z-50"
           ref={containerRef}
         >
           {/* <LargeHeader /> */}
           <Logo containerRef={containerRef} />
           <Countdown />
-          <div className="absolute bottom-0 h-56 w-full bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute bottom-0 w-full h-56 bg-gradient-to-t from-black to-transparent" />
         </motion.div>
         <div className="relative overflow-y-visible">
           <EntryStrings />
           <EntryCard />
           <motion.div
-            className="w-full md:px-14 lg:px-44 px-4 pt-32 min-h-screen"
+            className="w-full min-h-screen px-4 pt-32 md:px-14 lg:px-44"
             ref={refs[0]}
           >
             <About />
           </motion.div>
-          <Events refTag={refs[1]} />
+
+          <div ref={refs[1]}>
+            <Events />
+          </div>
+
+          {/*<Events refTag={refs[1]} />*/}
           <Gallery refTag={refs[2]} />
           <Scroller />
         </div>
