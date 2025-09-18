@@ -1,11 +1,30 @@
+import { useState } from "react";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../assets/Logo.png";
 import { motion } from "framer-motion";
 import { FaMeta } from "react-icons/fa6";
+import SOSCLogo from "./Logos/SOSCLogo";
 
 export default function Footer({ refTag }) {
+  const [loading, setLoading] = useState(false);
+
+  const handleSOSCClick = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      window.location.href = "https://sosc.org.in";
+    }, 2500); // show loader for 2.5s
+  };
+
   return (
     <>
+      {/* Loader Overlay */}
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
+          <SOSCLogo />
+        </div>
+      )}
+
       <motion.div
         className="flex flex-col w-full gap-10 p-10 md:flex-row md:justify-between md:items-start"
         initial={{ opacity: 0, y: 50 }}
@@ -14,7 +33,7 @@ export default function Footer({ refTag }) {
         viewport={{ amount: 0.4 }}
         ref={refTag}
       >
-        {/* Left Section: Logo + Address */}
+        {/* Left Section */}
         <motion.div className="flex flex-col items-center justify-center w-full gap-5 p-4 md:items-start md:w-1/2">
           <img src={Logo} className="max-w-sm" alt="Synergia Logo" />
           <h2 className="max-w-md px-2 text-base leading-relaxed text-center md:text-left md:text-lg">
@@ -23,9 +42,10 @@ export default function Footer({ refTag }) {
           </h2>
         </motion.div>
 
-        {/* Right Section: Queries + Email + Socials */}
+        {/* Right Section */}
         <motion.div className="flex flex-col items-center justify-start w-full gap-6 md:items-end md:w-1/2">
           <div className="flex flex-col gap-6 text-center md:text-right">
+            {/* Queries */}
             <div>
               <h1 className="pb-2 text-lg font-bold md:text-xl">
                 FOR ALL YOUR QUERIES
@@ -40,10 +60,9 @@ export default function Footer({ refTag }) {
               </p>
             </div>
 
+            {/* Email */}
             <div>
-              <h1 className="pb-2 text-lg font-bold md:text-xl">
-                OR WRITE TO US
-              </h1>
+              <h1 className="pb-2 text-lg font-bold md:text-xl">OR WRITE TO US</h1>
               <a
                 href="mailto:synergia@sahyadri.edu.in"
                 className="text-base font-semibold underline transition-colors hover:text-gray-300"
@@ -56,6 +75,7 @@ export default function Footer({ refTag }) {
             <div className="flex flex-col items-center gap-3 md:items-end">
               <h1 className="text-lg font-bold md:text-xl">FOLLOW US</h1>
               <div className="flex justify-center gap-3">
+                {/* IG */}
                 <button
                   aria-label="Instagram"
                   className="inline-flex items-center justify-center p-2 text-black transition-transform duration-300 ease-in-out transform bg-white rounded-lg w-9 h-9 hover:scale-110 active:scale-95"
@@ -69,6 +89,7 @@ export default function Footer({ refTag }) {
                 >
                   <FaInstagram className="w-full h-full" />
                 </button>
+                {/* Meta */}
                 <button
                   aria-label="Meta"
                   className="inline-flex items-center justify-center p-2 text-black transition-transform duration-300 ease-in-out transform bg-white rounded-lg w-9 h-9 hover:scale-110 active:scale-95"
@@ -82,6 +103,7 @@ export default function Footer({ refTag }) {
                 >
                   <FaMeta className="w-full h-full" />
                 </button>
+                {/* LinkedIn */}
                 <button
                   aria-label="LinkedIn"
                   className="inline-flex items-center justify-center p-2 text-black transition-transform duration-300 ease-in-out transform bg-white rounded-lg w-9 h-9 hover:scale-110 active:scale-95"
@@ -98,16 +120,15 @@ export default function Footer({ refTag }) {
               </div>
             </div>
           </div>
-
-          {/* Developer Credit */}
         </motion.div>
       </motion.div>
+
+      {/* Developer Credit */}
       <p className="mt-6 text-sm text-gray-400 text-center w-full">
         Developed and maintained by{" "}
         <a
-          href="https://sosc.org.in"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#"
+          onClick={handleSOSCClick}
           className="underline hover:text-gray-200"
         >
           SOSC
