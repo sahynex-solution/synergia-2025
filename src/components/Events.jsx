@@ -41,7 +41,7 @@ export default function Events({ refTag }) {
       Blob: SRCBlob,
       heading: "Build. Innovate. Compete.",
       description: "Where innovation meets automation",
-      link: null,
+      link: "https://src.sahyadri.edu.in/",
       reverse: false,
     },
     {
