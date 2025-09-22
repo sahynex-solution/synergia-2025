@@ -51,7 +51,7 @@ export default function Events({ refTag }) {
       Blob: AerophiliaBlob,
       heading: "The sky is not the limit.",
       description: "Celebrating aviation innovation and drone technology.",
-      link: "https://aerophilia.in",
+      link: "https://aerophilia.space",
       reverse: true,
     },
   ];
